@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CSV Search</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:300,500' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+    </head>
+    <body>
+        <form>
+            <input id="search" type="text" name="q" placeholder="Search" />
+        </form>
+
+        <div id="or">
+            <h2 style="display:inline">Or,</h2> update the database.
+        </div>
+
+        <img id="arrow" src="/static/img/arrow.png" alt="">
+
+        <form method="post" id="upload">
+            <input name="file" type="filepicker-dragdrop" data-fp-multiple="true" data-fp-button-text="Pick CSV" data-fp-drag-text="Or drop file here" data-fp-apikey="AlMIHDT2tQ5KhESQdBkelz"/>
+            <button type="submit" id="submit" onclick="document.getElementById('load').style.display = 'inline'">Upload</button>
+            <img id="load" src="/static/img/load.gif" alt="">
+        </form>
+    </body>
+</html>

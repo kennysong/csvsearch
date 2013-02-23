@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CSV Search</title>
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:300,500' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <a href="/" style="text-decoration: none;color: #6C8FFF;font-weight: 400;font-size: 12px;position: absolute;">Home</a>
+
+        <form>
+            <input id="search2" type="text" name="q" value="{{search}}" />
+        </form>
+
+        {% if results|length == 0 %}
+            <h4 style="color:#A5A5A5;text-align:center">Sorry, no results found.</h4>
+
+        {% else %}
+
+            {% for result in results %}
+            <div style="padding: 0px 20px">
+                <h4>{{loop.index}}. <a href="{{result[0].website}}">{{ result[0].program }}</a><h4>
+                <h5 style="font-weight:200;">{{ result[0].organization }}</h5>
+                <h5 style="font-weight:200;">{{ result[0].city }}, {{result[0].state}}</h5>
+                <h6 style="font-weight:200;">
+                    <strong>Category:</strong> {{result[0].category}}<span style="color:#6C8FFF">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <strong>Length:</strong> {{result[0].weeks}}<span style="color:#6C8FFF">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <strong>Cost:</strong> {{result[0].cost}}<span style="color:#6C8FFF">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                    <strong>Grade Levels:</strong> {{result[0].age}} 
+                </h6>
+            </div>
+            <hr style="border: 1px #D5D5D5 dashed;border-top: none;margin-top:30px">
+            {% endfor %}
+        
+        {% endif %}
+    </body>
+</html>
